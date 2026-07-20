@@ -28,7 +28,8 @@ public class SQLAccountRepository implements AccountRepository {
 
     @Override
     public void update(Account account) {
-
+        String query = "UPDATE accounts SET name = ? WHERE id = ?";
+        jdbcTemplate.update(query, account.getName(), account.getId());
     }
 
     @Override
