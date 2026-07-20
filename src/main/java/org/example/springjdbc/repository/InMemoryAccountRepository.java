@@ -4,13 +4,18 @@ import org.example.springjdbc.entity.Account;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
 public class InMemoryAccountRepository implements AccountRepository {
+    ConcurrentHashMap<Long, Account> store = new ConcurrentHashMap<>();
 
     @Override
     public void save(Account account) {
-
+        long newId = store.size() + 1;
+        account.setId(newId);
+        store.put(newId, account);
+        System.out.println("store = " + store);
     }
 
     @Override
