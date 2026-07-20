@@ -1,13 +1,12 @@
 package org.example.springjdbc.repository;
 
 import org.example.springjdbc.entity.Account;
-import org.springframework.stereotype.Repository;
 
 import java.time.Instant;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Repository
+//@Repository
 public class InMemoryAccountRepository implements AccountRepository {
     ConcurrentHashMap<Long, Account> store = new ConcurrentHashMap<>();
 
