@@ -5,5 +5,12 @@
 </head>
 <body>
 <h1>Hello Spring JDBC</h1>
+
+<section>
+    <form method="post">
+        <input name="name" placeholder="계좌명">
+        <button>생성</button>
+    </form>
+</section>
 </body>
 </html>

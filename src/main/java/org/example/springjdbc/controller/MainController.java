@@ -1,9 +1,12 @@
 package org.example.springjdbc.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.springjdbc.dto.AccountFormDTO;
 import org.example.springjdbc.service.BankService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller // Component Scan
@@ -15,5 +18,11 @@ public class MainController {
     @GetMapping("/")
     public String index() { // Return으로 나오는 String을 view resolver가 처리
         return "index";
+    }
+
+    @PostMapping("/")
+    public String makeAccount(@ModelAttribute AccountFormDTO dto) {
+        System.out.println("dto = " + dto);
+        return "redirect:/";
     }
 }
