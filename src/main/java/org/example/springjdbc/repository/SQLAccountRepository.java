@@ -34,12 +34,13 @@ public class SQLAccountRepository implements AccountRepository {
     @Override
     public List<Account> findAll() {
         String query = "SELECT * FROM accounts";
-        return jdbcTemplate.query(query, ROW_MAPPER);
+        return jdbcTemplate.query(query, ROW_MAPPER); // 전체 리스트
     }
 
     @Override
     public Account findById(long id) {
-        return null;
+        String query = "SELECT * FROM accounts WHERE id = ?";
+        return jdbcTemplate.queryForObject(query, ROW_MAPPER, id); // 개별 1개
     }
 
     @Override

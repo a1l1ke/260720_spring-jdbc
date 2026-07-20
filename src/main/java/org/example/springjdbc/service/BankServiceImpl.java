@@ -29,7 +29,7 @@ public class BankServiceImpl implements BankService {
 
     @Override
     public AccountViewDTO findAccount(long id) {
-        return null;
+        return AccountViewDTO.fromEntity(accountRepository.findById(id));
     }
 
     @Override
